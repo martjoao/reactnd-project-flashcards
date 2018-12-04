@@ -12,5 +12,9 @@ export default StyleSheet.create({
 
   deckList: {
     flex: 1,
+  },
+
+  deckSeparator: {
+    height: 10,
   }
 });

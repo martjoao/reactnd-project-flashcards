@@ -2,7 +2,12 @@ import { AsyncStorage } from 'react-native';
 
 const DECKS_STORAGE_KEY = 'FLASHCARDS:decks'
 
+export async function clearDecks() {
+  await AsyncStorage.removeItem(DECKS_STORAGE_KEY);
+};
+
 export async function createDeck(deckTitle) {
+  if (deckTitle === '') return;
   await AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify({
     [deckTitle]: {
       title: deckTitle,

@@ -9,7 +9,7 @@ const renderTabIcons = (navigation, tintColor) => {
 
   let iconName;
   if (routeName === 'Decks') {
-    iconName = 'ios-card';
+    iconName = 'md-bookmarks';
   } else if (routeName === 'NewDeck') {
     iconName = 'ios-add-circle';
   }

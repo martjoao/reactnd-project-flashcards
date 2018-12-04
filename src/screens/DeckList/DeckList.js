@@ -28,7 +28,7 @@ class DeckList extends React.Component {
   }
 
   render() {
-    console.log(this.state.decks);
+    console.log(this.state.decks)
     return (
       <SafeAreaView style={styles.container}>
         <FlatList
@@ -36,6 +36,9 @@ class DeckList extends React.Component {
           data={this.state.decks}
           renderItem={({item}) => <Deck deck={item} key={item.title} />}
           keyExtractor={(item) => item.title}
+          ItemSeparatorComponent={
+            () => <View style={styles.deckSeparator}/>
+          }
         />
       </SafeAreaView>
     );
