@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text, View, TextInput } from 'react-native';
-import * as DecksApi from '../../data/decks';
+import { Text, View } from 'react-native';
 
 import styles from './styles';
 import { Button } from '../../components/button';
 import { Question } from '../../components/question';
 import { shuffle } from '../../utils/array';
+
+import { setLocalNotification, clearLocalNotification } from '../../utils/notifications'
 
 class Quiz extends React.Component {
   constructor(props) {
@@ -20,6 +21,17 @@ class Quiz extends React.Component {
 
   componentDidMount() {
     this.setupQuiz();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const len = this.state.questions.length;
+    const cur = this.state.currentQuestion;
+    if (len > 0 && cur === len && prevState.currentQuestion === len - 1) {
+      // If finished a quiz, clar current notifications and set a new one for next day
+      clearLocalNotification();
+      setLocalNotification();
+    }
+
   }
 
   setupQuiz = () => {

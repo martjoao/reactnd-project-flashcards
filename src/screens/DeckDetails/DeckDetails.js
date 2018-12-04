@@ -47,7 +47,9 @@ class DeckDetails extends React.Component {
         <Button
           style={styles.button}
           title="Start Quiz"
-          onPress={() => this.props.navigation.navigate('Quiz', { deck })}
+          onPress={() => {
+            this.props.navigation.navigate('Quiz', { deck })
+          }}
           disabled={quizDisabled}
         />
         {quizDisabled &&

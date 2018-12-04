@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, View, SafeAreaView } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import * as DecksApi from '../../data/decks';
 
-import styles from './styles';
-import { FlatList, StatusBar } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native-gesture-handler';
 import Deck from '../../components/deck/Deck';
+import { setLocalNotification } from '../../utils/notifications'
+import styles from './styles';
 
 
 class DeckList extends React.Component {
@@ -21,6 +22,9 @@ class DeckList extends React.Component {
   }
 
   componentDidMount() {
+    // On app mount, set local notification if it isn't set
+    setLocalNotification();
+
     this.updateDeckList();
 
     // When coming back from another page, reload decks
