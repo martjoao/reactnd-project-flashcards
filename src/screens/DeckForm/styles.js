@@ -15,16 +15,12 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
 
+  buttonContainer: {
+    marginHorizontal: 36,
+  },
+
   titleInput: {
-    padding: 8,
-    borderColor: 'black',
-    fontSize: 18,
-    borderWidth: 1,
     marginHorizontal: 16,
     marginBottom: 16,
   },
-
-  buttonContainer: {
-    marginHorizontal: 36,
-  }
 });

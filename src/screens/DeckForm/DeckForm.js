@@ -3,6 +3,7 @@ import { Text, View, TextInput } from 'react-native';
 import * as DecksApi from '../../data/decks';
 
 import styles from './styles';
+import commonStyles from '../../common/styles';
 import Button from '../../components/button/Button';
 
 class DeckForm extends React.Component {
@@ -25,7 +26,7 @@ class DeckForm extends React.Component {
         <Text style={styles.title}>What is the title of the new deck?</Text>
 
         <TextInput
-          style={styles.titleInput}
+          style={[commonStyles.textInput, styles.titleInput]}
           value={this.state.titleInput}
           onChangeText={text => this.setState({ titleInput: text })}
         />
@@ -33,8 +34,8 @@ class DeckForm extends React.Component {
         <View style={styles.buttonContainer}>
           <Button
             title="Submit"
-            onPress={() => {
-              DecksApi.createDeck(this.state.titleInput);
+            onPress={async () => {
+              await DecksApi.createDeck(this.state.titleInput);
               this.props.navigation.navigate('Decks');
             }}
           />

@@ -19,7 +19,7 @@ class DeckDetails extends React.Component {
   componentDidMount() {
     this.setState({
       deck: this.props.navigation.getParam('deck', {}),
-    })
+    });
 
     this.props.navigation.addListener('willFocus', (payload)=>{
       this.updateDeck();
@@ -27,10 +27,10 @@ class DeckDetails extends React.Component {
   }
 
   updateDeck = async () => {
-    if (!this.state.deck.title) return;
-    this.setState({
-      deck: await DecksApi.getDeck(this.state.deck.title),
-    })
+    const param = this.props.navigation.getParam('deck', {});
+    if (!param.title) return;
+    const deck = await DecksApi.getDeck(param.title);
+    this.setState({ deck });
   }
 
   render() {
