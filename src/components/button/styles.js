@@ -7,7 +7,6 @@ export default StyleSheet.create({
     borderRadius: 5,
     justifyContent: 'center',
     height: 64,
-
   },
 
   contentContainer: {

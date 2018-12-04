@@ -32,7 +32,7 @@ export async function getDecksArray() {
 
 export async function getDeck(key) {
   const decks = await getDecks();
-  return decks[key]
+  return decks[key];
 }
 
 export async function addCardToDeck(title, card) {

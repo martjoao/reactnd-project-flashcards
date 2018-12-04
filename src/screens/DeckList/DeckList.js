@@ -22,6 +22,8 @@ class DeckList extends React.Component {
 
   componentDidMount() {
     this.updateDeckList();
+
+    // When coming back from another page, reload decks
     this.props.navigation.addListener('willFocus', (payload)=>{
       this.updateDeckList();
     });

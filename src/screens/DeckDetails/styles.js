@@ -8,4 +8,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 16,
   },
+
+  button: {
+    marginTop: 16,
+  },
 });
