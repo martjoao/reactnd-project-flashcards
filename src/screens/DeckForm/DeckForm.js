@@ -36,7 +36,7 @@ class DeckForm extends React.Component {
             title="Submit"
             onPress={async () => {
               await DecksApi.createDeck(this.state.titleInput);
-              this.props.navigation.navigate('Decks');
+              this.props.navigation.navigate('DeckDetails', { deck: await DecksApi.getDeck(this.state.titleInput)});
             }}
           />
         </View>
