@@ -2,15 +2,17 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
+    alignItems: 'center',
     backgroundColor: '#fff',
-    alignItems: 'stretch',
+    borderColor: '#000',
+    borderRadius: 5,
+    borderWidth: 1,
+    flex: 1,
     justifyContent: 'center',
-    paddingTop: 40,
-    paddingHorizontal: 16,
+    padding: 16,
   },
 
-  deckList: {
+  contentContainer: {
     flex: 1,
-  }
+  },
 });

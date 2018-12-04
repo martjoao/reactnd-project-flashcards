@@ -20,6 +20,11 @@ export async function getDecks() {
   return JSON.parse(decks);
 }
 
+export async function getDecksArray() {
+  const decks = await getDecks()
+  return Object.keys(decks).map(key => decks[key]);
+}
+
 export async function getDeck(key) {
   const decks = await getDecks();
   return decks[key]
