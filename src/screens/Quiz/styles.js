@@ -6,15 +6,6 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'stretch',
     justifyContent: 'center',
-    paddingTop: 16,
     paddingHorizontal: 16,
   },
-
-  deckList: {
-    flex: 1,
-  },
-
-  deckSeparator: {
-    height: 10,
-  }
 });

@@ -34,7 +34,13 @@ class DeckList extends React.Component {
         <FlatList
           style={styles.deckList}
           data={this.state.decks}
-          renderItem={({item}) => <Deck deck={item} key={item.title} />}
+          renderItem={({item}) => (
+            <Deck
+              deck={item}
+              key={item.title}
+              onPress={() => this.props.navigation.navigate('DeckDetails', { deck: item })}
+            />
+          )}
           keyExtractor={(item) => item.title}
           ItemSeparatorComponent={
             () => <View style={styles.deckSeparator}/>

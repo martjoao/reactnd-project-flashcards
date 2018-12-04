@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBottomTabNavigator, createAppContainer } from "react-navigation";
+import { createBottomTabNavigator, createAppContainer, createStackNavigator } from "react-navigation";
 import { Ionicons } from '@expo/vector-icons';
 
 import * as Screens from './src/screens';
@@ -23,7 +23,7 @@ const renderTabIcons = (navigation, tintColor) => {
   );
 }
 
-const TabNavigator = createBottomTabNavigator({
+const HomeTabNavigator = createBottomTabNavigator({
   Decks: Screens.DeckList,
   NewDeck: Screens.DeckForm,
 },
@@ -37,4 +37,33 @@ const TabNavigator = createBottomTabNavigator({
   },
 });
 
-export default createAppContainer(TabNavigator);
+const AppNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: HomeTabNavigator,
+      navigationOptions: () => ({
+        title: 'Flashcards',
+      }),
+    },
+    DeckDetails: {
+      screen: Screens.DeckDetails,
+      navigationOptions: () => ({
+        title: 'Deck Details',
+      }),
+    },
+    CardForm: {
+      screen: Screens.CardForm,
+      navigationOptions: () => ({
+        title: 'New Card',
+      }),
+    },
+    Quiz: {
+      screen: Screens.Quiz,
+      navigationOptions: () => ({
+        title: 'Quiz',
+      }),
+    },
+  },
+);
+
+export default createAppContainer(AppNavigator);

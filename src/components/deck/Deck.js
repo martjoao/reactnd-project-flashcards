@@ -14,12 +14,14 @@ class Deck extends React.PureComponent {
 
   render() {
     return (
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={this.props.onPress}
+      >
         <View style={styles.contentContainer}>
           <Text>{this.props.deck.title}</Text>
           <Text>{`${this.props.deck.questions.length} Card(s)`}</Text>
         </View>
-
       </TouchableOpacity>
     );
   }
@@ -30,6 +32,11 @@ Deck.propTypes = {
     title: PropTypes.string,
     questions: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
+  onPress: PropTypes.func,
 };
 
-export default Deck
+Deck.defaultProps = {
+  onPress: () => {},
+};
+
+export default Deck;
