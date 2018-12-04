@@ -1,21 +1,40 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createBottomTabNavigator, createAppContainer } from "react-navigation";
+import { Ionicons } from '@expo/vector-icons';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
+import * as Screens from './src/screens';
+
+const renderTabIcons = (navigation, tintColor) => {
+  const { routeName } = navigation.state;
+
+  let iconName;
+  if (routeName === 'Decks') {
+    iconName = 'ios-card';
+  } else if (routeName === 'NewDeck') {
+    iconName = 'ios-add-circle';
   }
+
+  return (
+    <Ionicons
+      name={iconName}
+      size={25}
+      color={tintColor}
+    />
+  );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const TabNavigator = createBottomTabNavigator({
+  Decks: Screens.DeckList,
+  NewDeck: Screens.DeckForm,
+},
+{
+  defaultNavigationOptions: ({ navigation }) => ({
+    tabBarIcon: ({ tintColor }) => renderTabIcons(navigation, tintColor)
+  }),
+  tabBarOptions: {
+    activeTintColor: 'tomato',
+    inactiveTintColor: 'gray',
   },
 });
+
+export default createAppContainer(TabNavigator);
