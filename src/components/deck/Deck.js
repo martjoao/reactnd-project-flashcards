@@ -17,6 +17,7 @@ class Deck extends React.PureComponent {
       <TouchableOpacity
         style={styles.container}
         onPress={this.props.onPress}
+        disabled={!this.props.onPress}
       >
         <View style={styles.contentContainer}>
           <Text>{this.props.deck.title}</Text>
@@ -36,7 +37,7 @@ Deck.propTypes = {
 };
 
 Deck.defaultProps = {
-  onPress: () => {},
+  onPress: null,
 };
 
 export default Deck;

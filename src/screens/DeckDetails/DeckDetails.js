@@ -35,6 +35,7 @@ class DeckDetails extends React.Component {
 
   render() {
     const { deck } = this.state;
+    const quizDisabled = this.state.deck.questions.length === 0;
     return (
       <View style={styles.container}>
         <Deck deck={deck} />
@@ -47,7 +48,11 @@ class DeckDetails extends React.Component {
           style={styles.button}
           title="Start Quiz"
           onPress={() => this.props.navigation.navigate('Quiz', { deck })}
+          disabled={quizDisabled}
         />
+        {quizDisabled &&
+          <Text>You cannot start a quiz with an empty deck</Text>
+        }
 
       </View>
     );

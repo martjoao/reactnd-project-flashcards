@@ -11,6 +11,7 @@ class Button extends React.PureComponent {
       <TouchableOpacity
         style={[styles.container, this.props.style]}
         onPress={this.props.onPress}
+        disabled={this.props.disabled}
       >
         <Text>{this.props.title}</Text>
       </TouchableOpacity>
@@ -21,6 +22,11 @@ class Button extends React.PureComponent {
 Button.propTypes = {
   onPress: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
 };
+
+Button.defaultProps = {
+  disabled: false,
+}
 
 export default Button;
