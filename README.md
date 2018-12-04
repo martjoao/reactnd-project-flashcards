@@ -1,5 +1,6 @@
 This project was developed as the third programming assignment for the Udacity React Nanodegree program.
 
+DISCLAIMER: This app has been tested on an Android Device
 ----
 
 # Flashcards
